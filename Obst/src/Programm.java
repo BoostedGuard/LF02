@@ -9,8 +9,8 @@ public class Programm {
         apfel2.setGewicht(250);
         apfel2.setFarbe("rot");
 
-        System.out.println("Das ist ein " + apfel + " er wiegt " + apfel.getGewicht() + " und ist " + apfel.getFarbe());
-        System.out.println();
-        System.out.println("Das ist ein " + apfel2 + " er wiegt " + apfel2.getGewicht() + " und ist " + apfel2.getFarbe());
+
+        System.out.println(apfel);
+
     }
 }

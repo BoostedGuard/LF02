@@ -1,3 +1,5 @@
+import javax.print.DocFlavor;
+
 public abstract class obst {
     private String name;
     private double gewicht;
@@ -34,6 +36,14 @@ public abstract class obst {
 
     public void setReif(Boolean reif) {
         this.reif = reif;
+    }
+    @Override
+    public String toString(){
+    String text = "    Name = "+ name;
+    text += "\n   Farbe = " + farbe;
+    text += "\n Gewicht = "+ gewicht;
+    text += "\n\tReif = "+ reif;
+    return text;
     }
 }
 
