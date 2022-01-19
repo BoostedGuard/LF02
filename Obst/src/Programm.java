@@ -10,7 +10,18 @@ public class Programm {
         apfel2.setFarbe("rot");
 
 
+        Banane Banane = new Banane();
+        Banane.setGewicht(900);
+        Banane.setFarbe("Gelb");
+        Banane.setReif(true);
+        Banane.setKruemmung(35);
+
+
         System.out.println(apfel);
+        System.out.println();
+        System.out.println(apfel2);
+        System.out.println();
+        System.out.println(Banane);
 
     }
 }

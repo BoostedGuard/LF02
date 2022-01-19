@@ -9,8 +9,14 @@ public class Banane extends obst {
         return kruemmung;
     }
 
-    public void setKruemmung(double kruemmung) {
+    public void setKruemmung (double kruemmung) {
         this.kruemmung = kruemmung;
+    }
+    @Override
+    public String toString(){
+        String text = super.toString();
+        text += "\nKrümmung = "+kruemmung;
+        return text;
     }
 }
 
