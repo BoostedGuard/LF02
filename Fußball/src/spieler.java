@@ -6,8 +6,13 @@ public class spieler {
     private int motivation;
     private int bisherTore;
 
-    public spieler(String name){
+    public spieler(String name , int alter , int staerke, int torschuss , int motivation, int bisherTore){
         this.name = name;
+        this.alter = alter;
+        this.staerke = staerke;
+        this.torschuss = torschuss;
+        this.motivation = motivation;
+        this.bisherTore = bisherTore;
     }
 
     public void setAlter(int alter) {
@@ -52,12 +57,12 @@ public class spieler {
 
     @Override
     public String toString(){
-        String text = "Name = \t\t\t\t"+name;
-        text += "\nAlter = \t\t\t"+ alter;
-        text += "\nStärke = \t\t\t"+ staerke;
-        text += "\nTorschuss = \t\t"+torschuss;
-        text += "\nMotivation = \t\t"+motivation;
-        text += "\nBisherige Tore = \t"+bisherTore;
+        String text = "Name  \t\t= "+name;
+        text += "\nAlter  \t\t= "+ alter;
+        text += "\nStärke  \t= "+ staerke;
+        text += "\nTorschuss\t= "+torschuss;
+        text += "\nMotivation\t= "+motivation;
+        text += "\nTore \t\t= "+bisherTore;
         return text;
     }
 }

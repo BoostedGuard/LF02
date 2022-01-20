@@ -1,19 +1,16 @@
 public class programm {
     public static void main(String[] args) {
-        trainer trainer = new trainer("Günni");
-        trainer.setAlter(45);
-        trainer.setErfahrung(8);
+        trainer trainer = new trainer("Günni" , 45 , 8);
 
-        spieler spieler = new spieler("Harry");
-        spieler.setAlter(23);
-        spieler.setStaerke(80);
-        spieler.setTorschuss(90);
-        spieler.setMotivation(70);
-        spieler.setBisherTore(15);
+        spieler spieler = new spieler("Harry" ,23,8, 7,6,26 );
+
+        torwart torwart = new torwart("Dieter",35,7,9,8);
+
 
         System.out.println(trainer);
         System.out.println();
         System.out.println(spieler);
-
+        System.out.println();
+        System.out.println(torwart);
     }
 }

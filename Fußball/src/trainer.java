@@ -3,8 +3,10 @@ public class trainer {
     private int alter;
     private int erfahrung;
 
-    public trainer(String name){
+    public trainer(String name , int alter , int erfahrung){
         this.name = name;
+        this.alter = alter;
+        this.erfahrung = erfahrung;
     }
 
     public String getName() {
@@ -29,9 +31,9 @@ public class trainer {
 
     @Override
     public String toString(){
-        String text = "Name = \t\t\t"+name;
-        text += "\nAlter = \t\t"+alter;
-        text += "\nErfahrung = \t"+erfahrung;
+        String text = "Name  \t\t = "+name;
+        text += "\nAlter\t\t = "+alter;
+        text += "\nErfahrung \t = "+erfahrung;
         return text;
     }
 }
