@@ -7,6 +7,7 @@ public class programm {
         torwart torwart = new torwart("Dieter",35,7,9,8);
 
 
+
         System.out.println(trainer);
         System.out.println();
         System.out.println(spieler);
