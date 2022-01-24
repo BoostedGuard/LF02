@@ -10,7 +10,7 @@ public class manschaft {
     int staerke;
     int staerkedurschnitt;
 
-    public manschaft(String name , trainer trainer, torwart torwart ){
+    public manschaft(String name , trainer trainer, torwart torwart, ArrayList<spieler> spielerListe ){
         this.name = name;
         this.torwart = torwart;
         this.trainer = trainer;
@@ -47,22 +47,30 @@ public class manschaft {
     public ArrayList<spieler> getSpielerListe() {
         return spielerListe;
     }
+
     public int getMotivation(){
-        for (spieler s: spielerListe) {
-        motivation += s.getMotivation();
+        for (spieler i: spielerListe) {
+        motivation += i.getMotivation();
         }
          motivation += torwart.getMotivation();
         motivationdurschnitt = motivation / (spielerListe.size()+1);
         return motivationdurschnitt;
     }
     public int getStaerke(){
-        for (spieler s: spielerListe){
-            staerke += s.getStaerke();
+        for (spieler i: spielerListe){
+            staerke += i.getStaerke();
         }
         staerke += torwart.getStaerke();
         staerkedurschnitt = staerke / (spielerListe.size()+1);
         return staerkedurschnitt;
     }
 
+
+    @Override
+    public String toString() {
+        return super.toString() + "Stärkedurschnitt = "+ getStaerke()+ "\nMotivationsdurschnitt = "+getMotivation();
+
+
+    }
 }
 
