@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class programm {
     public static void main(String[] args) {
 
-        ArrayList <spieler> spielerListe1 = new ArrayList<>();
+        ArrayList <spieler> spielerListe1 = new ArrayList<spieler>();
 
         spieler spieler1 = new spieler("Harry" ,23,8, 7,6,26 );
         spielerListe1.add(spieler1);

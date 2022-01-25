@@ -10,10 +10,11 @@ public class manschaft {
     int staerke;
     int staerkedurschnitt;
 
-    public manschaft(String name , trainer trainer, torwart torwart, ArrayList<spieler> spielerListe ){
+    public manschaft(String name , trainer trainer, torwart torwart, ArrayList spielerListe ){
         this.name = name;
         this.torwart = torwart;
         this.trainer = trainer;
+        this.spielerListe = spielerListe;
     }
 
     public void setName(String name) {
@@ -68,6 +69,7 @@ public class manschaft {
 
     @Override
     public String toString() {
+
         return super.toString() + "Stärkedurschnitt = "+ getStaerke()+ "\nMotivationsdurschnitt = "+getMotivation();
 
 
