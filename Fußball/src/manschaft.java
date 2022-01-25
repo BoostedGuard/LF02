@@ -70,8 +70,12 @@ public class manschaft {
     @Override
     public String toString() {
 
-        return super.toString() + "Stärkedurschnitt = "+ getStaerke()+ "\nMotivationsdurschnitt = "+getMotivation();
-
+        String text = getName()+"\n";
+        text += "___________________________";
+        text +="\n"+spielerListe+"\n";
+        text += "___________________________";
+        text += "\nStärkedurschnitt = "+ getStaerke()+ "\nMotivationsdurschnitt = "+getMotivation();
+        return text;
 
     }
 }

@@ -11,11 +11,17 @@ public class programm {
         spieler1 = new spieler("Franz",35,9,4,9,2);
         spielerListe1.add(spieler1);
 
+        spieler1 = new spieler("Et'o",23,3,8,6,2);
+        spielerListe1.add(spieler1);
+
+        spieler1 = new spieler("peter",37,7,6,3,33);
+        spielerListe1.add(spieler1);
+
         torwart torwart = new torwart("Dieter",35,7,9,8);
 
         trainer trainer = new trainer("Günni" , 45 , 8);
 
-        manschaft manschaft1 = new manschaft("heim",trainer,torwart,spielerListe1);
+        manschaft manschaft1 = new manschaft("Heim ",trainer,torwart,spielerListe1);
 
 
 
