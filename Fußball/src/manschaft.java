@@ -5,6 +5,7 @@ public class manschaft {
     private trainer trainer;
     private torwart torwart;
     private ArrayList<spieler> spielerListe;
+    private int manschaftsWert;
     int motivation;
     int motivationdurschnitt;
     int staerke;
@@ -70,11 +71,16 @@ public class manschaft {
     @Override
     public String toString() {
 
-        String text = getName()+"\n";
-        text += "___________________________";
-        text +="\n"+spielerListe+"\n";
-        text += "___________________________";
+        String text = getName();
+        text += "\n===========================";
+        text += "\nTorwart:\n"+ torwart;
+        text += "\n===========================";
+        text += "\nSpieler:\n"+spielerListe;
+        text += "\n===========================";
+        text += "\nTrainer:\n"+ trainer;
+        text += "\n===========================";
         text += "\nStärkedurschnitt = "+ getStaerke()+ "\nMotivationsdurschnitt = "+getMotivation();
+        text += "\n===========================\n\n\n\n";
         return text;
 
     }

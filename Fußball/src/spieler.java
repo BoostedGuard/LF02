@@ -57,6 +57,7 @@ public class spieler extends person {
         text += "\nTorschuss\t= "+torschuss;
         text += "\nMotivation\t= "+motivation;
         text += "\nTore \t\t= "+bisherTore;
+        text += "\n";
         return text;
     }
 }

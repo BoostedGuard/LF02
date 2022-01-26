@@ -21,7 +21,7 @@ public class programm {
 
         trainer trainer = new trainer("Günni" , 45 , 8);
 
-        manschaft manschaft1 = new manschaft("Heim ",trainer,torwart,spielerListe1);
+        manschaft manschaft1 = new manschaft("Holzweinkiel",trainer,torwart,spielerListe1);
 
 
 
@@ -34,10 +34,28 @@ public class programm {
         spieler2 = new spieler("Markus",32,9,2,7,3);
         spielersliste2.add(spieler2);
 
+        spieler2 = new spieler("Kalle",40,4,9,9,20);
+        spielersliste2.add(spieler2);
+
+        torwart torwart1 = new torwart("Siggi",30,8,4,9);
+
+        trainer trainer1 = new trainer("Harald",60,4);
+
+        manschaft manschaft2 = new manschaft("1.FC Südabravub",trainer1,torwart1,spielersliste2);
+
+
+
+
+
+
+
         ergebnis ergebnis = new ergebnis();
 
 
+
+
         System.out.println(manschaft1);
+        System.out.println(manschaft2);
 
     }
 }

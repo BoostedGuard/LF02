@@ -8,7 +8,7 @@ public class torwart extends spieler{
 
     @Override
     public String toString() {
-        return super.toString() + "\nreaktion \t= " + reaktion;
+        return super.toString() + "reaktion \t= " + reaktion;
     }
 
     public void setReaktion(int reaktion) {
