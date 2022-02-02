@@ -1,7 +1,7 @@
-public class trainer extends person {
+public class Trainer extends person {
     private int erfahrung;
 
-    public trainer(String name , int alter , int erfahrung){
+    public Trainer(String name , int alter , int erfahrung){
         super(name, alter);
         this.erfahrung = erfahrung;
     }

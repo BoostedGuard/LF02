@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 
-public class manschaft {
+public class Mannschaft {
     private String name;
-    private trainer trainer;
+    private Trainer trainer;
     private torwart torwart;
     private ArrayList<spieler> spielerListe;
     private int manschaftsWert;
@@ -11,7 +11,7 @@ public class manschaft {
     int staerke;
     int staerkedurschnitt;
 
-    public manschaft(String name , trainer trainer, torwart torwart, ArrayList spielerListe ){
+    public Mannschaft(String name , Trainer trainer, torwart torwart, ArrayList spielerListe ){
         this.name = name;
         this.torwart = torwart;
         this.trainer = trainer;
@@ -34,11 +34,11 @@ public class manschaft {
         return torwart;
     }
 
-    public void setTrainer(trainer trainer) {
+    public void setTrainer(Trainer trainer) {
         this.trainer = trainer;
     }
 
-    public trainer getTrainer() {
+    public Trainer getTrainer() {
         return trainer;
     }
 

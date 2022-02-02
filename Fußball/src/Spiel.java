@@ -1,10 +1,10 @@
 public class Spiel {
-    private manschaft heim;
-    private manschaft gast;
+    private Mannschaft heim;
+    private Mannschaft gast;
     private ergebnis ergebniss;
     private StringBuilder spielverlauf;
 
-    public Spiel(manschaft heim, manschaft gast , ergebnis ergebnis){
+    public Spiel(Mannschaft heim, Mannschaft gast , ergebnis ergebnis){
         this.heim = heim;
         this.gast = gast;
         this.ergebniss = ergebnis;
@@ -19,11 +19,11 @@ public class Spiel {
         return ergebniss;
     }
 
-    public manschaft getGast() {
+    public Mannschaft getGast() {
         return gast;
     }
 
-    public manschaft getHeim() {
+    public Mannschaft getHeim() {
         return heim;
     }
 

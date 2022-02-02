@@ -19,9 +19,9 @@ public class programm {
 
         torwart torwart = new torwart("Dieter",35,7,9,8);
 
-        trainer trainer = new trainer("Günni" , 45 , 8);
+        Trainer trainer = new Trainer("Günni" , 45 , 8);
 
-        manschaft manschaft1 = new manschaft("Holzweinkiel",trainer,torwart,spielerListe1);
+        Mannschaft mannschaft1 = new Mannschaft("Holzweinkiel",trainer,torwart,spielerListe1);
 
 
 
@@ -39,9 +39,9 @@ public class programm {
 
         torwart torwart1 = new torwart("Siggi",30,8,4,9);
 
-        trainer trainer1 = new trainer("Harald",60,4);
+        Trainer trainer1 = new Trainer("Harald",60,4);
 
-        manschaft manschaft2 = new manschaft("1.FC Südabravub",trainer1,torwart1,spielersliste2);
+        Mannschaft mannschaft2 = new Mannschaft("1.FC Südabravub",trainer1,torwart1,spielersliste2);
 
 
 
@@ -54,8 +54,8 @@ public class programm {
 
 
 
-        System.out.println(manschaft1);
-        System.out.println(manschaft2);
+        System.out.println(mannschaft1);
+        System.out.println(mannschaft2);
 
     }
 }

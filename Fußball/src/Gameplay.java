@@ -7,10 +7,11 @@ public class Gameplay {
     private static final int naesteAktion = 10;
 
 
-    private static int ermittelManschaftsWert(manschaft mannschaft, trainer trainer){
+    private static int ermittelManschaftsWert(Mannschaft mannschaft){
+        Trainer trainer = mannschaft.getTrainer();
         int manschaftswert = mannschaft.getMotivation() * mannschaft.getStaerke() * trainer.getErfahrung();
         if (manschaftswert == 0){
-            manschaftswert += 1;
+            manschaftswert = 1;
         }
         return manschaftswert;
     }
@@ -41,7 +42,16 @@ public static void spielen (Spiel spiel){
         int aktion = zuffall.nextInt(naesteAktion);
 
         do{
-            int heimwert =
+            Mannschaft heim= spiel.getHeim();
+            int heimwert = ermittelManschaftsWert(heim);
+            Mannschaft gast = spiel.getGast();
+            int gastwert = ermittelManschaftsWert(gast);
+
+            if (heimwert < gastwert){
+
+            }
+
+
         }
 }
 
