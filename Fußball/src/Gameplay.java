@@ -7,18 +7,34 @@ public class Gameplay {
     private static final int naesteAktion = 5;
 
 
-    private static int ermittelManschaftsWert(manschaft mannschaft){
-        int manschaftswert = mannschaft.getMotivation() * mannschaft.getStaerke();
+    private static int ermittelManschaftsWert(manschaft mannschaft, trainer trainer){
+        int manschaftswert = mannschaft.getMotivation() * mannschaft.getStaerke() * trainer.getErfahrung();
+        if (manschaftswert == 0){
+            manschaftswert += 1;
+        }
         return manschaftswert;
     }
 private static boolean erzieltTor(spieler schuetze , torwart torwart){
+        boolean erzielttor;
         Random zuffalszahl = new Random();
         int indexR = zuffalszahl.nextInt(5)-2;
         int indexS = zuffalszahl.nextInt(5)-2;
 
-        spieler spieler = spieler.getTorschuss() + indexS;
+        int torschuss = schuetze.getTorschuss() + indexS;
+        if (torschuss == 0){
+            torschuss +=1;
+        }
 
+        int reaktion = torwart.getReaktion() + indexR;
+        if (reaktion == 0){
+            reaktion +=1;
+        }
+
+        erzielttor = torschuss > reaktion;
+
+        return erzielttor;
 }
+public static void spielen ()
 
 
 }
