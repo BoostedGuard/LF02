@@ -1,28 +1,34 @@
 public class Spiel {
-    private int heim;
-    private int gast;
-    private int ergebniss;
+    private manschaft heim;
+    private manschaft gast;
+    private ergebnis ergebniss;
     private StringBuilder spielverlauf;
+
+    public Spiel(manschaft heim, manschaft gast , ergebnis ergebnis){
+        this.heim = heim;
+        this.gast = gast;
+        this.ergebniss = ergebnis;
+    }
 
 
     public StringBuilder getSpielverlauf() {
         return spielverlauf;
     }
 
-    public int getErgebniss() {
+    public ergebnis getErgebniss() {
         return ergebniss;
     }
 
-    public int getGast() {
+    public manschaft getGast() {
         return gast;
     }
 
-    public int getHeim() {
+    public manschaft getHeim() {
         return heim;
     }
 
     @Override
     public String toString(){
-        return "Endergebniss" + getErgebniss() + "\n"
+        return "Endergebniss" + getErgebniss() + "\nHeim" + getHeim();
     }
 }
