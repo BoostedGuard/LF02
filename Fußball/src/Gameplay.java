@@ -40,7 +40,7 @@ public static void spielen (Spiel spiel){
         Random zuffall  = new Random();
 
         int zeit = zuffall.nextInt(nachspielzeit);
-        int aktion = zuffall.nextInt(naesteAktion);
+        int aktion = zuffall.nextInt(naesteAktion+1);
         int j = 0;
         boolean weiter = true;
         do{
@@ -85,7 +85,7 @@ public static void spielen (Spiel spiel){
                 }
             }
 
-          j+=aktion;
+          j+= zuffall.nextInt(naesteAktion+1);
         if (j <= spielzeit){
             weiter = true;
         }
