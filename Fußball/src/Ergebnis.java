@@ -1,4 +1,4 @@
-public class ergebnis {
+public class Ergebnis {
     int trefferHeim;
     int trefferGast;
 

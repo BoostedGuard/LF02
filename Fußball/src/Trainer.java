@@ -1,4 +1,4 @@
-public class Trainer extends person {
+public class Trainer extends Person {
     private int erfahrung;
 
     public Trainer(String name , int alter , int erfahrung){

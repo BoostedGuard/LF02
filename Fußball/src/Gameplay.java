@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Gameplay {
@@ -15,7 +16,7 @@ public class Gameplay {
         }
         return manschaftswert;
     }
-private static boolean erzieltTor(spieler schuetze , torwart torwart){
+private static boolean erzieltTor(Spieler schuetze , Torwart torwart){
         boolean erzielttor;
         Random zuffalszahl = new Random();
         int indexR = zuffalszahl.nextInt(5)-2;
@@ -42,6 +43,7 @@ public static void spielen (Spiel spiel){
         int aktion = zuffall.nextInt(naesteAktion);
 
         do{
+
             Mannschaft heim= spiel.getHeim();
             int heimwert = ermittelManschaftsWert(heim);
             Mannschaft gast = spiel.getGast();
@@ -51,11 +53,32 @@ public static void spielen (Spiel spiel){
             int randomMannschaftsWert = mannschaftsWerte.nextInt(gesamtManschaftsWert);
 
             if (randomMannschaftsWert < heimwert){
-            
+                ArrayList<Spieler> arrayHeimmannschaft = heim.getSpielerListe();
+                Random r = new Random();
+                int index1 = r.nextInt(arrayHeimmannschaft.size());
+                Spieler schuetze = arrayHeimmannschaft.get(index1);
+                Torwart torwart = spiel.getGast().getTorwart();
+                boolean torschussH = erzieltTor(schuetze , torwart);
+                if (torschussH == true){
+                    int torHeim = spiel.getErgebniss().trefferHeim;
+                    System.out.println("Tor für die Heimannschaft");
+                }
+            }
+            if (randomMannschaftsWert > heimwert){
+                ArrayList<Spieler> arrayGastmannschaft = gast.getSpielerListe();
+                Random r = new Random();
+                int index2 = r.nextInt(arrayGastmannschaft.size());
+                Spieler spieler = arrayGastmannschaft.get(index2);
+                Torwart torwart = spiel.getHeim().getTorwart();
+                boolean torschussG = erzieltTor(spieler,torwart);
+                if (torschussG == true){
+                    int torGast = spiel.getErgebniss().trefferGast;
+                    System.out.println("Treffer für die Gastmannschaft");
+                }
             }
 
 
-        }
+        }while
 }
 
 
