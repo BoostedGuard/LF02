@@ -42,8 +42,9 @@ public static void spielen (Spiel spiel){
         int zeit = zuffall.nextInt(nachspielzeit);
         int aktion = zuffall.nextInt(naesteAktion);
         int j = 0;
-
+        boolean weiter = true;
         do{
+
 
             Mannschaft heim= spiel.getHeim();
             int heimwert = ermittelManschaftsWert(heim);
@@ -56,13 +57,13 @@ public static void spielen (Spiel spiel){
             if (randomMannschaftsWert < heimwert){
                 ArrayList<Spieler> arrayHeimmannschaft = heim.getSpielerListe();
                 Random r = new Random();
-                int index1 = r.nextInt(arrayHeimmannschaft.size());
-                Spieler schuetze = arrayHeimmannschaft.get(index1);
+                int rSpieler = r.nextInt(arrayHeimmannschaft.size());
+                Spieler schuetze = arrayHeimmannschaft.get(rSpieler);
                 Torwart torwart = spiel.getGast().getTorwart();
                 boolean torschussH = erzieltTor(schuetze , torwart);
                 if (torschussH == true){
-                    int torHeim = spiel.getErgebniss().trefferHeim;
-                    System.out.println("Tor für die Heimannschaft");
+                    int torHeim = spiel.getErgebniss().trefferHeim();
+                    System.out.println("Tor für die Heimannschaft ");
                 }
             }
             if (randomMannschaftsWert > heimwert){
@@ -73,14 +74,19 @@ public static void spielen (Spiel spiel){
                 Torwart torwart = spiel.getHeim().getTorwart();
                 boolean torschussG = erzieltTor(spieler,torwart);
                 if (torschussG == true){
-                    int torGast = spiel.getErgebniss().trefferGast;
-                    System.out.println("Treffer für die Gastmannschaft");
+                    int torGast = spiel.getErgebniss().trefferGast();
+                    System.out.println("Tor für die Gastmannschaft");
                 }
             }
 
           j+=aktion;
-
-        }while ()
+        if (j <= spielzeit){
+            weiter = true;
+        }
+        else if (j > spielzeit){
+            weiter = false;
+        }
+        }while (weiter == true);
 }
 
 

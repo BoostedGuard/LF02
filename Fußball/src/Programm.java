@@ -51,11 +51,16 @@ public class Programm {
 
         Ergebnis ergebnis = new Ergebnis();
 
+        Spiel spiel = new Spiel(mannschaft1 ,mannschaft2 ,ergebnis);
+
+        Gameplay gameplay = new Gameplay();
+        gameplay.spielen(spiel);
 
 
 
-        System.out.println(mannschaft1);
-        System.out.println(mannschaft2);
+
+        System.out.println(spiel);
+
 
     }
 }
