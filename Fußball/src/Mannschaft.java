@@ -11,7 +11,7 @@ public class Mannschaft {
     int staerke;
     int staerkedurschnitt;
 
-    public Mannschaft(String name , Trainer trainer, torwart torwart, ArrayList spielerListe ){
+    public Mannschaft(String name , Trainer trainer, torwart torwart, ArrayList <spieler> spielerListe ){
         this.name = name;
         this.torwart = torwart;
         this.trainer = trainer;

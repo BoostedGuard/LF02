@@ -26,7 +26,7 @@ public class programm {
 
 
 
-        ArrayList <spieler> spielersliste2 = new ArrayList<>();
+        ArrayList <spieler> spielersliste2 = new ArrayList<spieler>();
 
         spieler spieler2 = new spieler("Hannes",40,8,6,4,25);
         spielersliste2.add(spieler2);

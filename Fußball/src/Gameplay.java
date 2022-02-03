@@ -46,9 +46,12 @@ public static void spielen (Spiel spiel){
             int heimwert = ermittelManschaftsWert(heim);
             Mannschaft gast = spiel.getGast();
             int gastwert = ermittelManschaftsWert(gast);
+            int gesamtManschaftsWert = heimwert+gastwert;
+            Random mannschaftsWerte = new Random();
+            int randomMannschaftsWert = mannschaftsWerte.nextInt(gesamtManschaftsWert);
 
-            if (heimwert < gastwert){
-
+            if (randomMannschaftsWert < heimwert){
+            
             }
 
 
