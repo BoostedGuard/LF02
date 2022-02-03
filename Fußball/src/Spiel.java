@@ -29,6 +29,6 @@ public class Spiel {
 
     @Override
     public String toString(){
-        return     "\nEndergebniss" + getErgebniss() +"\nHeim" + getHeim() + "\nGast " + getGast();
+        return     "\nEndergebniss\n\n\n" + getErgebniss() + "\n" +getHeim() + "\n" + getGast();
     }
 }

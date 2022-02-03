@@ -32,7 +32,7 @@ private static boolean erzieltTor(Spieler schuetze , Torwart torwart){
             reaktion +=1;
         }
 
-        erzielttor = torschuss > reaktion;
+        erzielttor = torschuss >= reaktion;
 
         return erzielttor;
 }
@@ -63,7 +63,10 @@ public static void spielen (Spiel spiel){
                 boolean torschussH = erzieltTor(schuetze , torwart);
                 if (torschussH == true){
                     int torHeim = spiel.getErgebniss().trefferHeim();
-                    System.out.println("Tor für die Heimannschaft ");
+                    System.out.println("Tor für die Heimannschaft in Minute "+ j);
+                }
+                else{
+                    System.out.println("Torschuss wurde abgewehrt von "+ gast.getTorwart().getName()+ " in der "+j+" min!");
                 }
             }
             if (randomMannschaftsWert > heimwert){
@@ -75,7 +78,10 @@ public static void spielen (Spiel spiel){
                 boolean torschussG = erzieltTor(spieler,torwart);
                 if (torschussG == true){
                     int torGast = spiel.getErgebniss().trefferGast();
-                    System.out.println("Tor für die Gastmannschaft");
+                    System.out.println("Tor für die Gastmannschaft in Minute "+j);
+                }
+                else {
+                    System.out.println("Torschuss wurde verhindert von der Torwartlegende "+ heim.getTorwart().getName()+ " in der "+j+" min!");
                 }
             }
 
