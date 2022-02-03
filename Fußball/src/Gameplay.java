@@ -41,6 +41,7 @@ public static void spielen (Spiel spiel){
 
         int zeit = zuffall.nextInt(nachspielzeit);
         int aktion = zuffall.nextInt(naesteAktion);
+        int j = 0;
 
         do{
 
@@ -77,8 +78,9 @@ public static void spielen (Spiel spiel){
                 }
             }
 
+          j+=aktion;
 
-        }while
+        }while ()
 }
 
 
