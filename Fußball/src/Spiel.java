@@ -29,6 +29,7 @@ public class Spiel {
 
     @Override
     public String toString(){
-        return     "\nEndergebniss\n\n\n" + getErgebniss() + "\n" +getHeim() + "\n" + getGast();
+        return     "\nEndergebniss\n" + getErgebniss() + "\n" +getHeim() + "\n" + getGast();
     }
+    // lf 01 IO klassen rüber holen und dann mit boolean eine abfrage machen welche spieler info man haben will und ob wann überhaupt eine haben will
 }

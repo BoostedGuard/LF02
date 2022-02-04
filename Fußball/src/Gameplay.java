@@ -39,9 +39,9 @@ private static boolean erzieltTor(Spieler schuetze , Torwart torwart){
 public static void spielen (Spiel spiel){
         Random zuffall  = new Random();
 
-        int zeit = zuffall.nextInt(nachspielzeit);
+        int zeit = zuffall.nextInt(nachspielzeit+1);
         int aktion = zuffall.nextInt(naesteAktion+1);
-        int j = 0;
+        int j = 1;
         boolean weiter = true;
         do{
 
@@ -63,10 +63,10 @@ public static void spielen (Spiel spiel){
                 boolean torschussH = erzieltTor(schuetze , torwart);
                 if (torschussH == true){
                     int torHeim = spiel.getErgebniss().trefferHeim();
-                    System.out.println("Tor für die Heimannschaft in Minute "+ j);
+                    System.out.println("Tor für "+ heim.getName()+" in Minute "+ j);
                 }
                 else{
-                    System.out.println("Torschuss wurde abgewehrt von "+ gast.getTorwart().getName()+ " in der "+j+" min!");
+                    System.out.println("Abgewehrt von "+ gast.getTorwart().getName()+ " in der "+j+" min!");
                 }
             }
             if (randomMannschaftsWert > heimwert){
@@ -78,21 +78,22 @@ public static void spielen (Spiel spiel){
                 boolean torschussG = erzieltTor(spieler,torwart);
                 if (torschussG == true){
                     int torGast = spiel.getErgebniss().trefferGast();
-                    System.out.println("Tor für die Gastmannschaft in Minute "+j);
+                    System.out.println("Tor für " + gast.getName() +" in Minute "+j);
                 }
                 else {
-                    System.out.println("Torschuss wurde verhindert von der Torwartlegende "+ heim.getTorwart().getName()+ " in der "+j+" min!");
+                    System.out.println("Abgewehrt von "+ heim.getTorwart().getName()+ " in der "+j+" min!");
                 }
             }
-
-          j+= zuffall.nextInt(naesteAktion+1);
-        if (j <= spielzeit){
+            Random r = new Random();
+          j+= r.nextInt(naesteAktion+1);
+        if (j <= spielzeit + zeit){
             weiter = true;
         }
-        else if (j > spielzeit){
+        else if (j > spielzeit + zeit){
             weiter = false;
         }
         }while (weiter == true);
+    System.out.println("\nDie nachspeil zeit betrug: " +zeit +"min!");
 }
 
 

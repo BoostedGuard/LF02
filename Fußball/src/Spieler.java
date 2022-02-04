@@ -3,6 +3,7 @@ public class Spieler extends Person {
     private int torschuss;
     private int motivation;
     private int bisherTore;
+    private String spielerBeschreibung;
 
     public Spieler(String name , int alter , int staerke, int torschuss , int motivation, int bisherTore){
        super(name, alter);
@@ -13,8 +14,13 @@ public class Spieler extends Person {
     }
 
 
+    public void setSpielerBeschreibung(String spielerBeschreibung) {
+        this.spielerBeschreibung = spielerBeschreibung;
+    }
 
-
+    public String getSpielerBeschreibung() {
+        return spielerBeschreibung;
+    }
 
     public void setStaerke(int staerke) {
         this.staerke = staerke;
