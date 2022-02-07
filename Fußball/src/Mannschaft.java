@@ -11,7 +11,7 @@ public class Mannschaft {
     int staerke;
     int staerkedurschnitt;
 
-    public Mannschaft(String name , Trainer trainer, Torwart torwart, ArrayList <Spieler> spielerListe ){
+    public Mannschaft(String name, Trainer trainer, Torwart torwart, ArrayList<Spieler> spielerListe) {
         this.name = name;
         this.torwart = torwart;
         this.trainer = trainer;
@@ -50,20 +50,23 @@ public class Mannschaft {
         return spielerListe;
     }
 
-    public int getMotivation(){
-        for (Spieler i: spielerListe) {
-        motivation += i.getMotivation();
+    public int getMotivation() {
+        motivation = 0;
+        for (Spieler i : spielerListe) {
+            motivation += i.getMotivation();
         }
-         motivation += torwart.getMotivation();
-        motivationdurschnitt = motivation / (spielerListe.size()+1);
+        motivation += torwart.getMotivation();
+        motivationdurschnitt = motivation / (spielerListe.size() + 1);
         return motivationdurschnitt;
     }
-    public int getStaerke(){
-        for (Spieler i: spielerListe){
+
+    public int getStaerke() {
+        staerke = 0;
+        for (Spieler i : spielerListe) {
             staerke += i.getStaerke();
         }
         staerke += torwart.getStaerke();
-        staerkedurschnitt = staerke / (spielerListe.size()+1);
+        staerkedurschnitt = staerke / (spielerListe.size() + 1);
         return staerkedurschnitt;
     }
 
@@ -73,13 +76,13 @@ public class Mannschaft {
 
         String text = getName();
         text += "\n===========================";
-        text += "\nTorwart:\n"+ torwart;
+        text += "\nTorwart:\n" + torwart;
         text += "\n===========================";
-        text += "\nSpieler:\n"+spielerListe;
+        text += "\nSpieler:\n" + spielerListe;
         text += "\n===========================";
-        text += "\nTrainer:\n"+ trainer;
+        text += "\nTrainer:\n" + trainer;
         text += "\n===========================";
-        text += "\nStärkedurschnitt = "+ getStaerke()+ "\nMotivationsdurschnitt = "+getMotivation();
+        text += "\nStärkedurschnitt = " + getStaerke() + "\nMotivationsdurschnitt = " + getMotivation();
         text += "\n===========================\n\n\n\n";
         return text;
 

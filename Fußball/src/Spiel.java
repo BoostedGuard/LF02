@@ -4,7 +4,7 @@ public class Spiel {
     private Ergebnis ergebniss;
     private StringBuilder spielverlauf;
 
-    public Spiel(Mannschaft heim, Mannschaft gast , Ergebnis ergebnis){
+    public Spiel(Mannschaft heim, Mannschaft gast, Ergebnis ergebnis) {
         this.heim = heim;
         this.gast = gast;
         this.ergebniss = ergebnis;
@@ -28,8 +28,8 @@ public class Spiel {
     }
 
     @Override
-    public String toString(){
-        return     "\nEndergebniss\n" + getErgebniss() + "\n" +getHeim() + "\n" + getGast();
+    public String toString() {
+        return "\nEndergebniss\n" + getErgebniss() + "\n" + getHeim() + "\n" + getGast();
     }
     // lf 01 IO klassen rüber holen und dann mit boolean eine abfrage machen welche spieler info man haben will und ob wann überhaupt eine haben will
 }

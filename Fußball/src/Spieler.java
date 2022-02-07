@@ -5,8 +5,8 @@ public class Spieler extends Person {
     private int bisherTore;
     private String spielerBeschreibung;
 
-    public Spieler(String name , int alter , int staerke, int torschuss , int motivation, int bisherTore){
-       super(name, alter);
+    public Spieler(String name, int alter, int staerke, int torschuss, int motivation, int bisherTore) {
+        super(name, alter);
         this.staerke = staerke;
         this.torschuss = torschuss;
         this.motivation = motivation;
@@ -55,14 +55,14 @@ public class Spieler extends Person {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
 
-        String text = "\nName  \t\t= "+ getName();
-        text += "\nAlter  \t\t= "+ getAlter();
-        text += "\nStärke  \t= "+ staerke;
-        text += "\nTorschuss\t= "+torschuss;
-        text += "\nMotivation\t= "+motivation;
-        text += "\nTore \t\t= "+bisherTore;
+        String text = "\nName  \t\t= " + getName();
+        text += "\nAlter  \t\t= " + getAlter();
+        text += "\nStärke  \t= " + staerke;
+        text += "\nTorschuss\t= " + torschuss;
+        text += "\nMotivation\t= " + motivation;
+        text += "\nTore \t\t= " + bisherTore;
         text += "\n";
         return text;
     }

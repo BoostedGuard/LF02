@@ -51,6 +51,11 @@ public class Programm {
         spielersliste2.add(spieler2);
 
         spieler2 = new Spieler("Kalle", 40, 4, 9, 9, 20);
+
+        spieler2 = new Spieler("Marven Lange", 19, 7, 10, 6, 1);
+        spielersliste2.add(spieler2);
+
+        spieler2 = new Spieler("Tailor Buldmann", 14, 4, 9, 4, 20);
         spielersliste2.add(spieler2);
 
         Torwart torwart1 = new Torwart("Siggi", 30, 8, 4, 9);
@@ -65,7 +70,11 @@ public class Programm {
         Spiel spiel = new Spiel(mannschaft1, mannschaft2, ergebnis);
 
         Gameplay gameplay = new Gameplay();
-        gameplay.spielen(spiel);
+        try {
+            gameplay.spielen(spiel);
+        } catch (SpielAbruchException e) {
+            System.out.println(e.getMessage());
+        }
 
 
         System.out.println(spiel);
