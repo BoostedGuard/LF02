@@ -1,6 +1,6 @@
 public class Schmuck extends Gegenstand{
    String bezeichnung;
-    public Schmuck (String id, double wert){
+    public Schmuck (int id, double wert){
         super(id, wert);
         this.bezeichnung = bezeichnung;
     }
@@ -15,6 +15,8 @@ public class Schmuck extends Gegenstand{
 
     @Override
     public String toString() {
-        return "1";
+        String text = "Die ID lautet: "+getId();
+        text += "\nDer Wert der Aktie beträgt: "+ getWert();
+        return text;
     }
 }

@@ -1,13 +1,13 @@
 public abstract class Gegenstand {
-    private String id;
+    private int id;
     private double wert;
 
-    public Gegenstand(String id, double wert){
+    public Gegenstand(int id, double wert){
         this.id = id;
         this.wert = wert;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
@@ -21,6 +21,8 @@ public abstract class Gegenstand {
 
     @Override
     public String toString() {
-        return "Die ID ist "+id+ " der Wert ist "+wert;
+        String text = "\nID: "+id;
+        text+= "\nWert: "+wert;
+        return text;
     }
 }
