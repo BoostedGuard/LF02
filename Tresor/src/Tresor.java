@@ -14,6 +14,10 @@ public class Tresor {
        inhalt.add(gegenstand);
     }
     public void removeGegenstand (Gegenstand gegenstand){
+        if (getGegenstaende().contains(gegenstand)){
+            getGegenstaende().remove(gegenstand);
+            System.out.println("Der Gegenstand mit der ID " + gegenstand.getId() + " wurde aus dem Tresor entfernt");
+        }
         inhalt.remove(gegenstand);
     }
 
