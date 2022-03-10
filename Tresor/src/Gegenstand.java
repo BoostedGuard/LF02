@@ -1,5 +1,5 @@
 public abstract class Gegenstand {
-    private int id;
+    private final int id;
     private double wert;
 
     public Gegenstand(int id, double wert){
@@ -21,8 +21,6 @@ public abstract class Gegenstand {
 
     @Override
     public String toString() {
-        String text = "\nID: "+id;
-        text+= "\nWert: "+wert;
-        return text;
+        return "\nID: "+id+"\nWert: "+wert;
     }
 }

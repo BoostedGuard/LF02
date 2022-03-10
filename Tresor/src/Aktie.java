@@ -27,7 +27,8 @@ public class Aktie extends Gegenstand {
     public String toString() {
          return super.toString() +
                  "\nUnternehmen: "+getUnternehmen()+
-                 "\nNennwert: "+getNennwert();
+                 "\nNennwert: "+getNennwert()+
+                 "\n----------------";
     }
 }
 

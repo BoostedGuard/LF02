@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 
 public class Tresor {
-    private double gesamtwert;
     private ArrayList<Gegenstand> inhalt;
 
     public Tresor(ArrayList<Gegenstand> gegenstaende){
@@ -17,6 +16,15 @@ public class Tresor {
     public void removeGegenstand (Gegenstand gegenstand){
         inhalt.remove(gegenstand);
     }
+
+    public int getgesamtwert(){
+        int gesamtwert = 0;
+        for (Gegenstand i : inhalt){
+            gesamtwert += i.getWert();
+        }
+        return gesamtwert;
+    }
+
 
     @Override
     public String toString() {

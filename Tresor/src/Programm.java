@@ -3,8 +3,8 @@ import java.util.ArrayList;
 public class Programm {
     public static void main(String[] args) {
         ArrayList<Gegenstand> tresorInhalt = new ArrayList<>();
-        Schmuck uhr = new Schmuck(3567,12700);
-        Schmuck kette = new Schmuck(3425,540);
+        Schmuck uhr = new Schmuck(5647,18960,"Uhr");
+        Schmuck kette = new Schmuck(4372,600,"Kette");
         Aktie ikea = new Aktie(8731,7200,"Ikea",900);
         Aktie audi = new Aktie(9238,6900,"Audi GmbH",700);
 
@@ -13,7 +13,8 @@ public class Programm {
         tresor.addGegenstand(kette);
         tresor.addGegenstand(ikea);
         tresor.addGegenstand(audi);
-        System.out.println(tresor);
+        System.out.println(tresorInhalt);
+        System.out.println("Gesamtwert im Tresor: "+tresor.getgesamtwert());
 
         }
     }
