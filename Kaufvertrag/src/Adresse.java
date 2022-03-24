@@ -1,13 +1,13 @@
 public class Adresse {
 private String strasse;
-private int hausnummer;
-private int postleitzahl;
+private String hausNR;
+private String plz;
 private String ort;
 
-public Adresse(String strasse , int hausnummer, int postleitzahl, String ort){
+public Adresse(String strasse , String hausnummer, String postleitzahl, String ort){
     this.strasse = strasse;
-    this.hausnummer = hausnummer;
-    this.postleitzahl = postleitzahl;
+    this.hausNR = hausnummer;
+    this.plz = postleitzahl;
     this.ort = ort;
 }
 
@@ -19,20 +19,20 @@ public Adresse(String strasse , int hausnummer, int postleitzahl, String ort){
         return strasse;
     }
 
-    public void setHausnummer(int hausnummer) {
-        this.hausnummer = hausnummer;
+    public void setHausNR(String hausnummer) {
+        this.hausNR = hausnummer;
     }
 
-    public int getHausnummer() {
-        return hausnummer;
+    public String getHausNR() {
+        return hausNR;
     }
 
-    public void setPostleitzahl(int postleitzahl) {
-        this.postleitzahl = postleitzahl;
+    public void setPostleitzahl(String postleitzahl) {
+        this.plz = postleitzahl;
     }
 
-    public int getPostleitzahl() {
-        return postleitzahl;
+    public String  getPostleitzahl() {
+        return plz;
     }
 
     public void setOrt(String ort) {
@@ -47,8 +47,8 @@ public Adresse(String strasse , int hausnummer, int postleitzahl, String ort){
     public String toString() {
         return "Adresse{" +
                 "strasse='" + strasse + '\'' +
-                ", hausnummer=" + hausnummer +
-                ", postleitzahl=" + postleitzahl +
+                ", hausnummer=" + hausNR +
+                ", postleitzahl=" + plz +
                 ", ort='" + ort + '\'' +
                 '}';
     }
