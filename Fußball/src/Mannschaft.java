@@ -1,17 +1,17 @@
 import java.util.ArrayList;
 
-public class manschaft {
+public class Mannschaft {
     private String name;
-    private trainer trainer;
-    private torwart torwart;
-    private ArrayList<spieler> spielerListe;
+    private Trainer trainer;
+    private Torwart torwart;
+    private ArrayList<Spieler> spielerListe;
     private int manschaftsWert;
     int motivation;
     int motivationdurschnitt;
     int staerke;
     int staerkedurschnitt;
 
-    public manschaft(String name , trainer trainer, torwart torwart, ArrayList spielerListe ){
+    public Mannschaft(String name, Trainer trainer, Torwart torwart, ArrayList<Spieler> spielerListe) {
         this.name = name;
         this.torwart = torwart;
         this.trainer = trainer;
@@ -26,44 +26,47 @@ public class manschaft {
         return name;
     }
 
-    public void setTorwart(torwart torwart) {
+    public void setTorwart(Torwart torwart) {
         this.torwart = torwart;
     }
 
-    public torwart getTorwart() {
+    public Torwart getTorwart() {
         return torwart;
     }
 
-    public void setTrainer(trainer trainer) {
+    public void setTrainer(Trainer trainer) {
         this.trainer = trainer;
     }
 
-    public trainer getTrainer() {
+    public Trainer getTrainer() {
         return trainer;
     }
 
-    public void setSpielerListe(ArrayList<spieler> spielerListe) {
+    public void setSpielerListe(ArrayList<Spieler> spielerListe) {
         this.spielerListe = spielerListe;
     }
 
-    public ArrayList<spieler> getSpielerListe() {
+    public ArrayList<Spieler> getSpielerListe() {
         return spielerListe;
     }
 
-    public int getMotivation(){
-        for (spieler i: spielerListe) {
-        motivation += i.getMotivation();
+    public int getMotivation() {
+        motivation = 0;
+        for (Spieler i : spielerListe) {
+            motivation += i.getMotivation();
         }
-         motivation += torwart.getMotivation();
-        motivationdurschnitt = motivation / (spielerListe.size()+1);
+        motivation += torwart.getMotivation();
+        motivationdurschnitt = motivation / (spielerListe.size() + 1);
         return motivationdurschnitt;
     }
-    public int getStaerke(){
-        for (spieler i: spielerListe){
+
+    public int getStaerke() {
+        staerke = 0;
+        for (Spieler i : spielerListe) {
             staerke += i.getStaerke();
         }
         staerke += torwart.getStaerke();
-        staerkedurschnitt = staerke / (spielerListe.size()+1);
+        staerkedurschnitt = staerke / (spielerListe.size() + 1);
         return staerkedurschnitt;
     }
 
@@ -73,13 +76,13 @@ public class manschaft {
 
         String text = getName();
         text += "\n===========================";
-        text += "\nTorwart:\n"+ torwart;
+        text += "\nTorwart:\n" + torwart;
         text += "\n===========================";
-        text += "\nSpieler:\n"+spielerListe;
+        text += "\nSpieler:\n" + spielerListe;
         text += "\n===========================";
-        text += "\nTrainer:\n"+ trainer;
+        text += "\nTrainer:\n" + trainer;
         text += "\n===========================";
-        text += "\nStärkedurschnitt = "+ getStaerke()+ "\nMotivationsdurschnitt = "+getMotivation();
+        text += "\nStärkedurschnitt = " + getStaerke() + "\nMotivationsdurschnitt = " + getMotivation();
         text += "\n===========================\n\n\n\n";
         return text;
 
