@@ -7,4 +7,7 @@ public class WareDAO {
     public WareDAO() throws ClassNotFoundException {
         Class.forName(CLASSNAME);
     }
+    public Ware read(String warenNr) {
+
+    }
 }
