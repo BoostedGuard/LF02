@@ -1,4 +1,5 @@
 import businessObjects.Vertragspartner;
+import businessObjects.Ware;
 import dao.VertragspartnerDAO;
 import dao.WareDAO;
 
@@ -9,5 +10,8 @@ public class test {
 
         Vertragspartner vertragspartner = vertragspartnerDAO.read("0123456789");
         System.out.println(vertragspartner.getVorname());
+
+        Ware ware = wareDAO.read(1);
+        System.out.println(ware.getPreis());
     }
 }
