@@ -10,8 +10,10 @@ public class test {
 
         Vertragspartner vertragspartner = vertragspartnerDAO.read("0123456789");
         System.out.println(vertragspartner.getVorname());
+        System.out.println(vertragspartner.getNachname());
+        System.out.println(vertragspartner.getAdresse());
 
         Ware ware = wareDAO.read(1);
-        System.out.println(ware.getPreis());
+        System.out.println(ware);
     }
 }
