@@ -37,6 +37,7 @@ public class VertragspartnerDAO {
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, ausweisNr);
 
+
             //SQL abfrage ausführen
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -103,6 +104,9 @@ public class VertragspartnerDAO {
             e.printStackTrace();
         }
         return vertragspartner;
+    }
+    public Vertragspartner delete(){
+
     }
 }
 
