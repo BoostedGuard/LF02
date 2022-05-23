@@ -12,8 +12,9 @@ public class WareDAO {
     private final String CONNECTIONSTRING = "jdbc:sqlite:KaufvertragMitDAO/src/data/Kaufvertrag.db";
 
     public WareDAO() throws ClassNotFoundException {
-    Class.forName(CLASSNAME);
+        Class.forName(CLASSNAME);
     }
+
     public Ware read(int warenNr) {
         Ware ware = null;
         Connection connection = null;
@@ -32,9 +33,9 @@ public class WareDAO {
             String bezeichnung = resultSet.getString("bezeichnung");
             String beschreibung = resultSet.getString("beschreibung");
             Double preis = resultSet.getDouble("preis");
-            String besonderheiten= resultSet.getString("besonderheiten");
+            String besonderheiten = resultSet.getString("besonderheiten");
             String maengel = resultSet.getString("maengel");
-            ware = new Ware(bezeichnung,preis);
+            ware = new Ware(bezeichnung, preis);
             ware.setBeschreibung(beschreibung);
 
             if (besonderheiten != null) {
@@ -45,13 +46,12 @@ public class WareDAO {
             }
             if (maengel != null) {
                 String[] maengelArray = maengel.split(";");
-                for (String m : maengelArray){
+                for (String m : maengelArray) {
                     ware.getMaengelListe().add(m.trim());
                 }
             }
 
 
-
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -62,53 +62,48 @@ public class WareDAO {
             }
         }
         return ware;
+
     }
-    public ArrayList<Ware> read(){
-        ArrayList<Ware> alleWaren = null;
+    public ArrayList read() throws SQLException {
+        ArrayList<Ware> wareArrayList = null;
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
         try {
             connection = DriverManager.getConnection(CONNECTIONSTRING);
-            String sql = "SELECT * FROM ware ";
+            String sql = "SELECT * FROM Ware";
             preparedStatement = connection.prepareStatement(sql);
-
             ResultSet resultSet = preparedStatement.executeQuery();
-            alleWaren = new ArrayList<>();
-
-            while (resultSet.next()) {
-
-                String bezeichnung = resultSet.getString("bezeichnung");
-                String beschreibung = resultSet.getString("beschreibung");
-                Double preis = resultSet.getDouble("preis");
-                String besonderheiten = resultSet.getString("besonderheiten");
-                String maengel = resultSet.getString("maengel");
-                Ware ware = new Ware(bezeichnung, preis);
-                ware.setBeschreibung(beschreibung);
-
-                if (besonderheiten != null) {
-                    String[] besonderheitenArray = besonderheiten.split(";");
-                    for (String b : besonderheitenArray) {
-                        ware.getBesonderheitenListe().add(b.trim());
-                    }
-                }
-                if (maengel != null) {
-                    String[] maengelArray = maengel.split(";");
-                    for (String m : maengelArray) {
-                        ware.getMaengelListe().add(m.trim());
-                    }
-                }
+            wareArrayList = new ArrayList<>();
+            Ware ware = null;
+            while (resultSet.next()){
+                ware = creatObjekt(resultSet);
+                wareArrayList.add(ware);
             }
-
-
-        } catch (SQLException e) {
+        }catch (SQLException e){
             e.printStackTrace();
-        } finally {
+        }finally {
             try {
                 connection.close();
-            } catch (SQLException e) {
+            }catch (SQLException e){
                 e.printStackTrace();
             }
-        }
-        return ware;
+        }return wareArrayList;
+    }
+
+
+    private Ware creatObjekt(ResultSet resultSet){
+        Ware ware = null;
+        try{
+            String bezeichnung = resultSet.getString("bezeichnung");
+            String beschreibung = resultSet.getString("beschreibung");
+            Double preis = resultSet.getDouble("preis");
+            String besonderheiten = resultSet.getString("besonderheiten");
+            String maengel = resultSet.getString("maengel");
+            ware = new Ware(bezeichnung, preis);
+            ware.setBeschreibung(beschreibung);
+        }catch (SQLException e){
+            e.printStackTrace();
+        }return  ware;
+    }
 }
