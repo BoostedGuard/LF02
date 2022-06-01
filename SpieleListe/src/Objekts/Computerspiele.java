@@ -1,6 +1,6 @@
 package Objekts;
 
-public class ComputerSpiele {
+public class Computerspiele {
     private String name;
     private String genre;
     private int fsk;
@@ -9,7 +9,7 @@ public class ComputerSpiele {
     private String zustand;
     private String bewertung;
 
-    public ComputerSpiele(String name, String genre, int fsk, double preis, String releaseDate, String zustand, String bewertung){
+    public Computerspiele(String name, String genre, int fsk, double preis, String releaseDate, String zustand, String bewertung){
         this.name = name;
         this.genre = genre;
         this.fsk = fsk;

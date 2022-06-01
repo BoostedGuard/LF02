@@ -27,21 +27,12 @@ public class VertragspartnerDAO {
         Vertragspartner vertragspartner = null;
         Connection connection = null;
         PreparedStatement preparedStatement = null;
-        //  Verbindung zu Datenbank herstellen
         try {
             connection = DriverManager.getConnection(CONNECTIONSTRING);
-
-
-            //SQL Abfrage erstellen
             String sql = "SELECT * FROM vertragspartner where ausweisNr = ?";
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, ausweisNr);
-
-
-            //SQL abfrage ausführen
             ResultSet resultSet = preparedStatement.executeQuery();
-
-            //zeiger auf den ersten datensatz setzen
             resultSet.next();
             vertragspartner = createObject(resultSet);
         } catch (SQLException e) {
@@ -60,8 +51,6 @@ public class VertragspartnerDAO {
         ArrayList<Vertragspartner> vertragspartnerliste = null;
         Connection connection = null;
         PreparedStatement preparedStatement = null;
-        //Verbindung zu Datenbank herstellen
-
         try {
             connection = DriverManager.getConnection(CONNECTIONSTRING);
             String sql = "SELECT * FROM Vertragspartner";
