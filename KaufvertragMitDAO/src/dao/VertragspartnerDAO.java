@@ -105,8 +105,88 @@ public class VertragspartnerDAO {
         }
         return vertragspartner;
     }
-    public Vertragspartner delete(){
 
+    public void vertragspartnerDelete(String ausweisNr) {
+        PreparedStatement preparedStatement = null;
+        Connection connection = null;
+        try {
+            connection = DriverManager.getConnection(CONNECTIONSTRING);
+            String sql = "DELETE FROM vertragspartner WHERE ausweisNr = ?";
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, ausweisNr);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                preparedStatement.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public void insertInTo(String ausweisNr, String vorname, String nachname, String strasse, String hausNr, String plz, String ort) {
+        PreparedStatement preparedStatement = null;
+        Connection connection = null;
+        try {
+            connection = DriverManager.getConnection(CONNECTIONSTRING);
+            String sql = "INSERT INTO Vertragspartner VALUES (?,?,?,?,?,?,?)";
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, ausweisNr);
+            preparedStatement.setString(2, vorname);
+            preparedStatement.setString(3, nachname);
+            preparedStatement.setString(4, strasse);
+            preparedStatement.setString(5, hausNr);
+            preparedStatement.setString(6, plz);
+            preparedStatement.setString(7, ort);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                preparedStatement.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public void updateVertragspartner(String vorname){
+        PreparedStatement preparedStatement = null;
+        Connection connection = null;
+        try {
+            connection=DriverManager.getConnection(CONNECTIONSTRING);
+            String sql = "UPDATE Vertragspartner SET vorname = ? WHERE ausweisNr = 0123456789";
+            preparedStatement.setString(1,vorname);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                preparedStatement.close();
+            }catch (SQLException e) {
+                e.printStackTrace();
+            }finally {
+                try {
+                    connection.close();
+                }catch (SQLException e){
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 }
 

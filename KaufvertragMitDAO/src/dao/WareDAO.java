@@ -64,6 +64,7 @@ public class WareDAO {
         return ware;
 
     }
+
     public ArrayList read() throws SQLException {
         ArrayList<Ware> wareArrayList = null;
         Connection connection = null;
@@ -76,25 +77,26 @@ public class WareDAO {
             ResultSet resultSet = preparedStatement.executeQuery();
             wareArrayList = new ArrayList<>();
             Ware ware = null;
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 ware = creatObjekt(resultSet);
                 wareArrayList.add(ware);
             }
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             try {
                 connection.close();
-            }catch (SQLException e){
+            } catch (SQLException e) {
                 e.printStackTrace();
             }
-        }return wareArrayList;
+        }
+        return wareArrayList;
     }
 
 
-    private Ware creatObjekt(ResultSet resultSet){
+    private Ware creatObjekt(ResultSet resultSet) {
         Ware ware = null;
-        try{
+        try {
             String bezeichnung = resultSet.getString("bezeichnung");
             String beschreibung = resultSet.getString("beschreibung");
             Double preis = resultSet.getDouble("preis");
@@ -102,8 +104,76 @@ public class WareDAO {
             String maengel = resultSet.getString("maengel");
             ware = new Ware(bezeichnung, preis);
             ware.setBeschreibung(beschreibung);
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
-        }return  ware;
+        }
+        return ware;
+    }
+
+    public void wareDelete(int warenNr) {
+        PreparedStatement preparedStatement = null;
+        Connection connection = null;
+        try {
+            connection = DriverManager.getConnection(CONNECTIONSTRING);
+            String sql = "DELETE FROM Ware WHERE warenNr = ?";
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, warenNr);
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void wareInsertInTo(Ware ware) {
+        PreparedStatement preparedStatement = null;
+        Connection connection = null;
+        try {
+            connection = DriverManager.getConnection(CONNECTIONSTRING);
+            String sql = "INSERT INTO Ware(bezeichnung, beschreibung, preis, besonderheiten, maengel)" + "VALUES (?,?,?,?,?)";
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, ware.getBezeichnung());
+            preparedStatement.setString(2, ware.getBeschreibung());
+            preparedStatement.setDouble(3, ware.getPreis());
+            preparedStatement.setString(4, mapListToString(ware.getBesonderheitenListe()));
+            preparedStatement.setString(5,mapListToString(ware.getMaengelListe()));
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private String mapListToString(ArrayList<String> arrayList) {
+        String semicolonSeparetedString = "";
+        for (String s : arrayList) {
+            if (semicolonSeparetedString.isEmpty()) {
+                semicolonSeparetedString = s;
+            } else {
+                semicolonSeparetedString += "; " + s;
+            }
+        }
+        return semicolonSeparetedString;
+    }
+
+    public void updateWare(String bezeichnung){
+        PreparedStatement preparedStatement = null;
+        Connection connection = null;
+        try {
+            connection = DriverManager.getConnection(CONNECTIONSTRING);
+            String sql = "UPDATE Ware SET bezeichnung = ? WHERE warenNr = 4";
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1,bezeichnung);
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
+
