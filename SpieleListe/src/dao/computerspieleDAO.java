@@ -13,6 +13,28 @@ public class computerspieleDAO {
     public computerspieleDAO() throws ClassNotFoundException{
         Class.forName(CLASSNAME);
     }
+
+    private Computerspiele creatObject(ResultSet resultSet){
+        Computerspiele computerspiele = null;
+        try {
+            int spielNr = resultSet.getInt("spielNr");
+            String name = resultSet.getString("name");
+            String genre = resultSet.getString("genre");
+            int fsk = resultSet.getInt("fsk");
+            double preis = resultSet.getDouble("preis");
+            String releaseDate = resultSet.getString("releaseDate");
+            String zustand = resultSet.getString("zustand");
+            String bewertung = resultSet.getString("bewertung");
+            computerspiele = new Computerspiele(name,genre,fsk,preis,releaseDate,zustand,bewertung);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return computerspiele;
+    }
+
+
+
     public Computerspiele read(int spielNr){
         Computerspiele computerspiele = null;
         PreparedStatement preparedStatement = null;
@@ -34,6 +56,7 @@ public class computerspieleDAO {
                 e.printStackTrace();
             }
         }
+        return computerspiele;
     }
     public ArrayList read(){
         ArrayList<Computerspiele> computerspieleArrayList = null;
